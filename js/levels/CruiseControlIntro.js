@@ -4,11 +4,11 @@ if (typeof Levels === 'undefined') var Levels = {};
 Levels.CruiseControlIntro = function()
 {
     this.name = "CruiseControlIntro";
-    this.title = "Cruise Control";
+    this.title = "Controle de Cruzeiro";
     this.boilerPlateCode = "function controlFunction(vehicle){ \n  return Math.sin(2*vehicle.T);\n};";
     this.sampleSolution = "var speedErrorIntegral = 0;\nfunction controlFunction(vehicle){\n  let speedError = vehicle.targetSpeed - vehicle.speed;\n  if(Math.abs(speedError) < 3.0) speedErrorIntegral += 0.02 * speedError;\n  let throttle = 0.4 * (speedError + 0.7 * speedErrorIntegral);\n  monitor('speedError', speedError);\n  monitor('speedErrorIntegral', speedErrorIntegral);\n  monitor('throttle', throttle);\n  return throttle;\n};\n";
     this.difficultyRating = 1;
-    this.description = "Attain and hold the target speed (magenta indicator) for 5 seconds. Keep the speed deviation below 0.2 units.";
+    this.description = "Atingir e manter a velocidade alvo (indicador magenta) por 5 segundos. Mantenha o desvio de velocidade abaixo de 0,2 unidades.";
     ImageDataCache.load('img/speedometer.png');
     ImageDataCache.load('img/car.png');
     this.model = new Models.CruiseControl({carImg:'img/car.png',speedometerImg:'img/speedometer.png'});

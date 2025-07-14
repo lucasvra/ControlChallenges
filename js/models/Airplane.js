@@ -109,7 +109,7 @@ Models.Airplane.prototype.simulate = function (dt, controlFunc)
     || typeof input.throttle != 'number'
     || typeof input.brake != 'number'
     )
-        throw "Error: The controlFunction must return an object: {elevator:number, throttle:number, brake:number}";
+        throw "Erro: a controlFunction deve retornar um objeto: {elevator:number, throttle:number, brake:number}";
     this.elevator_command = Math.max(-0.3, Math.min(0.3, input.elevator));
     this.throttle_command = Math.max(0.0, Math.min(1.0, input.throttle));
     this.brake_command    = Math.max(0.0, Math.min(1.0, input.brake));
@@ -372,9 +372,9 @@ Models.Airplane.prototype.draw = function (ctx, canvas)
         ctx.textAlign="center";
         ctx.font="10px Verdana";
         ctx.fillStyle="#000";
-        ctx.fillText("CRASHED!",0.4,0.4);
+        ctx.fillText("COLIDIU!",0.4,0.4);
         ctx.fillStyle="#f00";
-        ctx.fillText("CRASHED!",0,0);
+        ctx.fillText("COLIDIU!",0,0);
         ctx.restore();
     }
     else if(this.structural_overload()) {
@@ -383,9 +383,9 @@ Models.Airplane.prototype.draw = function (ctx, canvas)
         ctx.textAlign="center";
         ctx.font="10px Verdana";
         ctx.fillStyle="#000";
-        ctx.fillText("Structural overload!",0.4,0.4);
+        ctx.fillText("Sobrecarga estrutural!",0.4,0.4);
         ctx.fillStyle="#f00";
-        ctx.fillText("Structural overload!",0,0);
+        ctx.fillText("Sobrecarga estrutural!",0,0);
         ctx.restore();
     }
 }

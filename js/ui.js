@@ -135,41 +135,41 @@ CC.gameLoop = (function() {
 
 CC.levelGroups = {
     Tutorial: {
-        TutorialBlockWithFriction: 'Part 1',
-        TutorialBlockWithoutFriction: 'Part 2',
-        TutorialBlockOnSlope: 'Part 3',
+        TutorialBlockWithFriction: 'Parte 1',
+        TutorialBlockWithoutFriction: 'Parte 2',
+        TutorialBlockOnSlope: 'Parte 3',
     },
     Multirotor: {
-        MultirotorIntro: 'Hover',
-        MultirotorObstacles: 'Obstacles',
-        MultirotorFlip: 'Flip',
+        MultirotorIntro: 'Pairar',
+        MultirotorObstacles: 'Obstáculos',
+        MultirotorFlip: 'Giro',
     },
-    Airplane: {
-        AirplaneIntro: 'Takeoff',
-        AirplaneLanding: 'Landing',
+    'Avião': {
+        AirplaneIntro: 'Decolagem',
+        AirplaneLanding: 'Pouso',
     },
-    'Ball on Platform': {
-        BallOnPlatformBalance: 'Balance',
-        BallOnPlatformBounce: 'Bounce',
-        BallOnPlatformEdgeBalance: 'Edge Balance',
+    'Bola na Plataforma': {
+        BallOnPlatformBalance: 'Equilíbrio',
+        BallOnPlatformBounce: 'Quicar',
+        BallOnPlatformEdgeBalance: 'Equilíbrio na Borda',
     },
-    'Inverted Pendulum': {
-        StabilizeSinglePendulum: 'Stabilize',
-        SwingUpSinglePendulum: 'Swing Up',
+    'Pêndulo Invertido': {
+        StabilizeSinglePendulum: 'Estabilizar',
+        SwingUpSinglePendulum: 'Levantar',
     },
-    'Inverted Double Pendulum': {
-        StabilizeDoublePendulum: 'Stabilize',
-        SwingUpDoublePendulum: 'Swing Up',
+    'Pêndulo Duplo Invertido': {
+        StabilizeDoublePendulum: 'Estabilizar',
+        SwingUpDoublePendulum: 'Levantar',
     },
-    'Rocket Landing': {
-        RocketLandingNormal: 'Intro',
-        RocketLandingUpsideDown: 'Upside Down',
-        RocketLandingMulti: 'Multiple',
+    'Pouso de Foguete': {
+        RocketLandingNormal: 'Introdução',
+        RocketLandingUpsideDown: 'De Cabeça Para Baixo',
+        RocketLandingMulti: 'Múltiplos',
         RocketLandingHoverslam: 'Hoverslam',
     },
-    Driving: {
-        VehicleSteeringSimple: 'Intro',
-        VehicleRacing: 'Racing',
+    'Direção': {
+        VehicleSteeringSimple: 'Introdução',
+        VehicleRacing: 'Corrida',
     },
 };
 
@@ -232,7 +232,7 @@ shortcut.add("Esc",function() {showPopup(null);}, {'type':'keydown','propagate':
 
 
 // popup close button
-$('.popup').prepend($('<button type="button" class="btn btn-danger closeButton" onclick="showPopup(null);" data-toggle="tooltip" data-placement="bottom" title="Close [ESC]"><span class="glyphicon glyphicon-remove"> </span></button>'));
+$('.popup').prepend($('<button type="button" class="btn btn-danger closeButton" onclick="showPopup(null);" data-toggle="tooltip" data-placement="bottom" title="Fechar [ESC]"><span class="glyphicon glyphicon-remove"> </span></button>'));
 
 // level load buttons
 {

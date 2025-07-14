@@ -4,11 +4,11 @@ if (typeof Levels === 'undefined') var Levels = {};
 Levels.RocketLandingMulti = function()
 {
     this.name = "RocketLandingMulti";
-    this.title = "Multiple Rocket Landing";
+    this.title = "Pouso de Múltiplos Foguetes";
     this.boilerPlateCode = "function controlFunction(rocket)\n{\n  return {throttle:1,gimbalAngle:-0.2};\n}";
     this.sampleSolution = "function controlFunction(rocket)\n{\n  // Horizontal position control\n  var x_target = 0.0;\n  var dx_target = 0.2 * (x_target - rocket.x);\n  if(Math.abs(x_target - rocket.x) < 20.0) dx_target = 0.0;\n  var theta_target = 0.05 * (dx_target - rocket.dx);\n  \n  // Pitch control with limits on angle and angular rate\n  theta_target = Math.max(-0.6, Math.min(0.6, theta_target));\n  var dtheta_target = 1.0 * (theta_target - rocket.theta);\n  dtheta_target = Math.max(-1.0, Math.min(1.0, dtheta_target));\n  var gimbalAngle = 10.0 * (rocket.dtheta - dtheta_target);\n  \n  // Vertical speed profile for constant acceleration landing\n  var dy_target = -Math.sqrt(10.0 * Math.max(1e-6, rocket.y - 25));\n  \n  // Maintain height until positioned over the landing pad\n  if(Math.abs(rocket.x) > 35.0 || Math.abs(rocket.dx) > 12.0) dy_target = 0.5;\n  \n  // Vertical speed control\n  var throttle = 0.5 + 0.5 * (dy_target - rocket.dy);\n  \n  // Set high throttle while spinning to guarantee control authority\n  if(Math.abs(rocket.theta) > 0.6 || Math.abs(rocket.dtheta) > 0.5) throttle = 0.9;\n  throttle = Math.max(0.25, throttle);\n  \n  return {throttle:throttle, gimbalAngle:gimbalAngle};\n}";
     this.difficultyRating = 3;
-    this.description = "Now there are multiple rockets. The point of this level is to see if the same controller can land the rocket from different initial conditions. Collision avoidance between the different rockets is not necessary. They pass through each other.";
+    this.description = "Agora existem vários foguetes. O objetivo é ver se o mesmo controlador consegue pousar o foguete a partir de condições iniciais diferentes. Não é necessário evitar colisões entre eles, pois se atravessam.";
     this.models = []; 
     this.models.push(new Models.RocketLanding({TWR: 2,theta: 0,dtheta: -0.1,Length: 40,Width: 5,x: 100,dx: 20,y: 300,dy: -10,T: 0}));
     this.models.push(new Models.RocketLanding({TWR: 2,theta: 0,dtheta: 0,   Length: 40,Width: 5,x: -180,dx: 50,y: 60,dy: 0,T: 0}));
@@ -45,7 +45,7 @@ Levels.RocketLandingMulti.prototype.draw = function (ctx, canvas)
         ctx.font="10px Verdana";
         ctx.textAlign="center"; 
         ctx.fillStyle="#990000";
-        ctx.fillText("CRASHED!",0,-80);
+        ctx.fillText("COLIDIU!",0,-80);
         ctx.restore();
     }
 }

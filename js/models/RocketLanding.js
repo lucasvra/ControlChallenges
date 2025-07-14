@@ -70,8 +70,8 @@ Models.RocketLanding.prototype.simulate = function (dt, controlFunc)
     if(!this.detectCollision())
     {
         var input = controlFunc({x:this.x,dx:this.dx,y:this.y,dy:this.dy,theta:this.theta,dtheta:this.dtheta,T:this.T}); // call user controller
-        if(typeof input != 'object' || typeof input.throttle != 'number' || typeof input.gimbalAngle != 'number') 
-            throw "Error: The controlFunction must return an object: {throttle:number, gimbalAngle:number}";
+        if(typeof input != 'object' || typeof input.throttle != 'number' || typeof input.gimbalAngle != 'number')
+            throw "Erro: a controlFunction deve retornar um objeto: {throttle:number, gimbalAngle:number}";
         this.throttle_cmd = Math.max(this.throttleLimit,Math.min(1,input.throttle)); // input limits
         this.gimbalAngle_cmd = Math.max(-.2,Math.min(.2,input.gimbalAngle));
         integrationStep(this, ['x','dx','y','dy','theta','dtheta','throttle','gimbalAngle'], dt);
@@ -112,12 +112,12 @@ Models.RocketLanding.prototype.draw = function (ctx, canvas)
         if(this.landed())
         {
             ctx.fillStyle="#009900";
-            ctx.fillText("Landed!",0,-80);
+            ctx.fillText("Pousou!",0,-80);
         }
         else
         {
             ctx.fillStyle="#990000";
-            ctx.fillText("CRASHED!",0,-80);
+            ctx.fillText("COLIDIU!",0,-80);
         }
         ctx.restore();
     }

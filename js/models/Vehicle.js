@@ -58,13 +58,13 @@ Models.Vehicle.prototype.simulate = function (dt, controlFunc)
         if(this.constantSpeed)
         {
             this.acceleration = 0;
-            if(typeof input !== 'number') throw "Error: The controlFunction must return a number.";
+            if(typeof input !== 'number') throw "Erro: a controlFunction deve retornar um número.";
             this.steering = Math.max(-this.steeringLimit,Math.min(this.steeringLimit,input));
         }
         else
         {
             if(typeof input !== 'object' || typeof input.steering !== 'number' || typeof input.acceleration !== 'number')
-                throw "Error: The controlFunction must return an object: {steering: number, acceleration: number}";
+                throw "Erro: a controlFunction deve retornar um objeto: {steering: number, acceleration: number}";
             this.steering = Math.max(-this.steeringLimit,Math.min(this.steeringLimit,input.steering));
             this.acceleration = Math.max(-this.accelerationLimit,Math.min(this.accelerationLimit,input.acceleration));
         }

@@ -33,7 +33,7 @@ Models.DoublePendulum.prototype.simulate = function (dt, controlFunc)
 {
     this.F = controlFunc({x:this.x,dx:this.dx,theta1:this.theta1,dtheta1:this.dtheta1,theta2:this.theta2,dtheta2:this.dtheta2,T:this.T});
     this.F = Math.max(-50,Math.min(50,this.F));
-    if(typeof this.F != 'number' || isNaN(this.F)) throw "Error: The controlFunction must return a number.";
+    if(typeof this.F != 'number' || isNaN(this.F)) throw "Erro: a controlFunction deve retornar um número.";
     integrationStep(this, ['x', 'dx', 'theta1', 'dtheta1', 'theta2', 'dtheta2'], dt);
 }
 

@@ -26,7 +26,7 @@ Models.BlockOnSlope.prototype.vars =
 Models.BlockOnSlope.prototype.simulate = function (dt, controlFunc)
 {
     this.F_cmd = controlFunc({x:this.x,dx:this.dx,T:this.T});
-    if(typeof this.F_cmd != 'number' || isNaN(this.F_cmd)) throw "Error: The controlFunction must return a number.";
+    if(typeof this.F_cmd != 'number' || isNaN(this.F_cmd)) throw "Erro: a controlFunction deve retornar um número.";
     this.F_cmd = Math.max(-20,Math.min(20,this.F_cmd));
     integrationStep(this, ['x', 'dx', 'F'], dt);
 }

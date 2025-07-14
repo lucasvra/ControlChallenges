@@ -4,11 +4,11 @@ if (typeof Levels === 'undefined') var Levels = {};
 Levels.BallOnPlatformBalance = function()
 {
     this.name = "BallOnPlatformBalance";
-    this.title = "Ball on Platform: Balance";
+    this.title = "Bola na Plataforma: Equilíbrio";
     this.boilerPlateCode = "function controlFunction(ball, piston, hinge, T)\n{\n  return {pistonAcceleration: 100 * Math.sin(20*T), hingeAcceleration: 100 * Math.sin(17 * T)};\n}";
     this.sampleSolution = "function controlFunction(ball, piston, hinge, T)\n{\n  var piston_speed_target = 0;\n  if((ball.y - (piston.length - 5.15)) < 1.0 && ball.vy*ball.vy > 0.1)\n  {\n    piston_speed_target = 0.5 * ball.vy;\n  }\n  piston_speed_target += 2.0 * (2.0 - piston.length);\n  var pistonAcceleration = 40 * (piston_speed_target - piston.speed);\n  var hinge_angle_target = 0.25 * ball.vx + 0.2 * ball.x;\n  var hinge_speed_target = 10 * (hinge_angle_target - hinge.angle);\n  var hingeAcceleration = 40 * (hinge_speed_target - hinge.speed);\n  return {pistonAcceleration:pistonAcceleration, hingeAcceleration:hingeAcceleration};\n}";
     this.difficultyRating = 2;
-    this.description = "Catch the ball and keep it at rest in the center of the platform.";
+    this.description = "Pegue a bola e mantenha-a parada no centro da plataforma.";
     this.model = new Models.BouncingBallPlatform({});
 }
 

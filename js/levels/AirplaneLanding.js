@@ -4,11 +4,11 @@ if (typeof Levels === 'undefined') var Levels = {};
 Levels.AirplaneLanding = function()
 {
     this.name = "AirplaneLanding";
-    this.title = "Airplane Landing";
+    this.title = "Pouso de Avião";
     this.boilerPlateCode = "function controlFunction(vehicle) \n{\n  return {\n    elevator: 0.039, \n    throttle: 0.215, \n    brake: 0.0\n  };\n};\n";
     this.sampleSolution = "function controlFunction(vehicle) \n{\n  return {\n    elevator: 0.01 * (Math.max(-8*vehicle.T, Math.max(-25, -0.7 * (vehicle.y + 0.8))) - vehicle.vy),\n    throttle: 0.0, \n    brake: 0.8\n  };\n};\n";
     this.difficultyRating = 3;
-    this.description = "Perform a descent, landing and full stop. All ground can be used as runway. There is no need to aim for a touchdown point.";
+    this.description = "Realize a descida, o pouso e pare completamente. Qualquer parte do solo serve como pista.";
     this.model = new Models.Airplane({
         x: 0.0,
         vx: 50.0,
