@@ -32,7 +32,7 @@ Models.CruiseControl.prototype.simulate = function (dt, controlFunc)
 {
     var input = controlFunc({speed:this.speed,targetSpeed:this.targetSpeed,inclination:this.inclination,speedHoldTimer:this.speedHoldTimer,T:this.T}); // call user controller
     if(typeof input != 'number') 
-        throw "Error: The controlFunction must return a number.";
+        throw "Erro: a controlFunction deve retornar um número.";
 
     // input limit
     this.throttle_cmd = Math.max(-1,Math.min(1,input));

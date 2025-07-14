@@ -9,7 +9,7 @@ Levels.TutorialBlockWithoutFriction = function()
     this.sampleSolution = "function controlFunction(block)\n{\n  // Idea: The block should slow down.\n  // It should be pushed against its direction of movement.\n  // We add this force to the proportional controller.\n  // This is known as a proportional-derivative (or PD) controller.\n  \n  return -3*block.x -1.5*block.dx;\n}";
     this.boilerPlateCode = "function controlFunction(block)\n{\n  return 5*Math.sin(10*block.T);\n}";
     this.difficultyRating = 1;
-    this.description = "Push the block under the arrow (x=0) and make it stop there. Calculate the horizontal force on the block necessary to achieve this. This time the block has no friction (as if on ice). The proportional controller alone will not work.";
+    this.description = "Empurre o bloco para baixo da seta (x=0) e faça-o parar ali. Calcule a força horizontal necessária. Desta vez o bloco não tem fricção (como no gelo); o controlador proporcional sozinho não funcionará.";
     this.model = new Models.BlockOnSlope({g: 0,x: -2,dx: 0,slope: 0,friction: 0});
 }
 

@@ -33,8 +33,8 @@ Models.Multirotor.prototype.vars =
 Models.Multirotor.prototype.simulate = function (dt, controlFunc)
 {
     var input = controlFunc({x: this.x, dx: this.dx, y: this.y, dy: this.dy, theta: this.theta, dtheta: this.dtheta, T: this.T}); // call user controller
-    if(typeof input != 'object' || typeof input.thrustLeft != 'number' || typeof input.thrustRight != 'number') 
-        throw "Error: The controlFunction must return an object: {thrustLeft:number, thrustRight:number}";
+    if(typeof input != 'object' || typeof input.thrustLeft != 'number' || typeof input.thrustRight != 'number')
+        throw "Erro: a controlFunction deve retornar um objeto: {thrustLeft:number, thrustRight:number}";
     this.thrustLeft_cmd = Math.max(0,Math.min(this.maxThrust,input.thrustLeft));
     this.thrustRight_cmd = Math.max(0,Math.min(this.maxThrust,input.thrustRight));
     integrationStep(this, ['x', 'dx', 'y', 'dy', 'theta', 'dtheta', 'thrustLeft', 'thrustRight'], dt);

@@ -57,8 +57,8 @@ Models.BouncingBallPlatform.prototype.simulate = function (dt, controlFunc)
         },
         this.T
     ); 
-    if(typeof commands != 'object' || typeof commands.pistonAcceleration != 'number' || typeof commands.hingeAcceleration != 'number') 
-        throw "Error: The controlFunction must return an object: {pistonAcceleration:number, hingeAcceleration:number}";
+    if(typeof commands != 'object' || typeof commands.pistonAcceleration != 'number' || typeof commands.hingeAcceleration != 'number')
+        throw "Erro: a controlFunction deve retornar um objeto: {pistonAcceleration:number, hingeAcceleration:number}";
 
     commands.pistonAcceleration = Math.max(-10.0, Math.min(10.0, commands.pistonAcceleration)); // input limits
     commands.hingeAcceleration = Math.max(-15.0, Math.min(15.0, commands.hingeAcceleration)); // input limits

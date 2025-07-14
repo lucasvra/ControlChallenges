@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>[Title]</title>
+                <title>Desafios de Controle</title>
 		<link rel="stylesheet" href="css/codemirror.css">
 		<link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
@@ -17,9 +17,9 @@
 			</div>
 			<div id="errorsBox" class="bigErrorBox">
 				<p>
-					<button id="errorsBoxUpButton" type="button" class="btn btn-primary btn-xs" title="Larger"><span class="glyphicon glyphicon-chevron-up"> </span></button>
-					<button id="errorsBoxDownButton" type="button" class="btn btn-primary btn-xs" title="Smaller"><span class="glyphicon glyphicon-chevron-down"> </span></button>
-					Errors &amp; Warnings
+                                        <button id="errorsBoxUpButton" type="button" class="btn btn-primary btn-xs" title="Maior"><span class="glyphicon glyphicon-chevron-up"> </span></button>
+                                        <button id="errorsBoxDownButton" type="button" class="btn btn-primary btn-xs" title="Menor"><span class="glyphicon glyphicon-chevron-down"> </span></button>
+                                        Erros &amp; Avisos
 				</p>
 				<pre></pre>
 			</div>
@@ -27,15 +27,15 @@
 		
 		<div id="right-coln">
 			<div id="buttons">
-				<button id="varInfoShowButton" type="button" title="Show Variables"><span class="glyphicon glyphicon-info-sign"> </span></button>
-				<button id="varInfoHideButton" type="button" title="Hide Variables"><span class="glyphicon glyphicon-info-sign"> </span></button>
-				<button id="restartButton"     type="button" title="Restart with code changes [Alt+Enter]"><span class="glyphicon glyphicon-repeat"> </span></button>
-				<button id="pauseButton"       type="button" title="Pause [Alt+P]"><span class="glyphicon glyphicon-pause"> </span></button>
-				<button id="playButton"        type="button" title="Play [Alt+P]"><span class="glyphicon glyphicon-play"> </span></button>
-				<button id="tipsButton"        type="button" title="Tips"><span class="glyphicon glyphicon-question-sign"> </span></button>
-				<button id="boilerplateButton" type="button" title="Reset to boilerplate code"><span class="glyphicon glyphicon-remove"> </span></button>
-				<button id="solutionButton"    type="button" title="Sample solution"><span class="glyphicon glyphicon-book"> </span></button>
-				<button id="levelmenuButton"   type="button" title="Level menu"><span class="glyphicon glyphicon-th"> </span></button>
+                                <button id="varInfoShowButton" type="button" title="Mostrar Variáveis"><span class="glyphicon glyphicon-info-sign"> </span></button>
+                                <button id="varInfoHideButton" type="button" title="Esconder Variáveis"><span class="glyphicon glyphicon-info-sign"> </span></button>
+                                <button id="restartButton"     type="button" title="Reiniciar com alterações no código [Alt+Enter]"><span class="glyphicon glyphicon-repeat"> </span></button>
+                                <button id="pauseButton"       type="button" title="Pausar [Alt+P]"><span class="glyphicon glyphicon-pause"> </span></button>
+                                <button id="playButton"        type="button" title="Executar [Alt+P]"><span class="glyphicon glyphicon-play"> </span></button>
+                                <button id="tipsButton"        type="button" title="Dicas"><span class="glyphicon glyphicon-question-sign"> </span></button>
+                                <button id="boilerplateButton" type="button" title="Redefinir para código base"><span class="glyphicon glyphicon-remove"> </span></button>
+                                <button id="solutionButton"    type="button" title="Solução de exemplo"><span class="glyphicon glyphicon-book"> </span></button>
+                                <button id="levelmenuButton"   type="button" title="Menu de fases"><span class="glyphicon glyphicon-th"> </span></button>
 				<pre id="variableInfo"></pre>
 			</div>
 			<canvas id="cas"></canvas>
@@ -44,32 +44,32 @@
 		<div id="levelStartPopup" class="popup">
 			<h1 id="levelTitle">[Title]</h1>
 			<p id="levelDescription">[Description]</p>
-			<p>Note: Your code for each level is saved in your browser.</p>
+                        <p>Nota: Seu código para cada fase é salvo no seu navegador.</p>
 			
 			<div class="centered">
-				<button type="button" onclick="showPopup();CC.play();"><span class="glyphicon glyphicon-play"> </span>&nbsp;&nbsp;Start</button>
-				<button type="button" onclick="showPopup('#levelMenuPopup');"><span class="glyphicon glyphicon-th"> </span>&nbsp;&nbsp;Level menu</button>
+                                <button type="button" onclick="showPopup();CC.play();"><span class="glyphicon glyphicon-play"> </span>&nbsp;&nbsp;Começar</button>
+                                <button type="button" onclick="showPopup('#levelMenuPopup');"><span class="glyphicon glyphicon-th"> </span>&nbsp;&nbsp;Menu de fases</button>
 			</div>
 		</div>
 		
 		<div id="levelCompletePopup" class="popup">
-			<h1>Level Complete!</h1>
+                        <h1>Fase Concluída!</h1>
 			<div class="centered">
-				<p>You solved the level in <span id="levelSolvedTime"></span> seconds.</p>
-				<button type="button" onclick="showPopup();">OK</button>
-				<button type="button" onclick="showPopup('#levelMenuPopup');"><span class="glyphicon glyphicon-th"> </span>&nbsp;&nbsp;Level menu</button>
+                                <p>Você concluiu a fase em <span id="levelSolvedTime"></span> segundos.</p>
+                                <button type="button" onclick="showPopup();">OK</button>
+                                <button type="button" onclick="showPopup('#levelMenuPopup');"><span class="glyphicon glyphicon-th"> </span>&nbsp;&nbsp;Menu de fases</button>
 			</div>
 		</div>
 
 		<div id="levelMenuPopup" class="popup">
-			<h1>Select a Level</h1>
+                        <h1>Selecione uma Fase</h1>
 			<div id="levelList" class="centered"></div>
 		</div>
 
 		<div id="tipsPopup" class="popup">
-			<p>You can view your own variables by calling:<pre>monitor('name',value);</pre></p>
-			<p>If you need persistent state, you can use global variables. You will have to declare them outside your function with the 'var' keyword.</p>
-			<p>Your code for each level is saved in your browser.</p>
+                        <p>Você pode visualizar suas próprias variáveis chamando:<pre>monitor('nome',valor);</pre></p>
+                        <p>Se precisar de estado persistente, use variáveis globais. Declare-as fora da sua função com a palavra-chave 'var'.</p>
+                        <p>Seu código para cada fase é salvo no seu navegador.</p>
 		</div>
 		
 		<script src="js/jquery-1.11.2.js"></script>

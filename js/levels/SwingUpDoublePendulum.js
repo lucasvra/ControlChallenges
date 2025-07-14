@@ -4,11 +4,11 @@ if (typeof Levels === 'undefined') var Levels = {};
 Levels.SwingUpDoublePendulum = function()
 {
     this.name = "SwingUpDoublePendulum";
-    this.title = "Inverted Double Pendulum: Swing Up";
+    this.title = "Pêndulo Duplo Invertido: Levantar";
     this.sampleSolution = "function controlFunction(p)\n{\n  var s = [[0.295, 49.5], [0.81, -49.5], [0.7, 0.0], [0.52, 50.0], [1.2, 0.0]];\n  while(s.length != 0)\n  {\n    var [dt,F] = s.shift();\n    p.T -= dt;\n    if(p.T <= 0) return F;\n  }\n  \n  var x_offset = Math.max(0, 2.5 - 3.0 * p.T);\n  return 18.9*p.dtheta1 - 352.0*p.dtheta2 - 98.0*p.dx + 492.5*p.theta1 - 764.6*p.theta2 - 31.6*(p.x + x_offset);\n}";
     this.boilerPlateCode = "function controlFunction(pendulum)\n{\n  return 10*Math.sin(8*pendulum.T);\n}";
     this.difficultyRating = 4;
-    this.description = "Bring the pendulum into an upright position and keep it upright in the center (x=0).";
+    this.description = "Leve o pêndulo para a posição vertical e mantenha-o ereto no centro (x=0).";
     this.model = new Models.DoublePendulum({m0: 10,m1: 2,m2: 4,L1: 0.618,L2: 1,g: 2,theta1: -3.1415,dtheta1: 0,theta2: 3.1415,dtheta2: 0.0,x: -1,dx: 0,F: 0,T: 0});
 }
 

@@ -29,7 +29,7 @@ Models.SinglePendulum.prototype.vars =
 Models.SinglePendulum.prototype.simulate = function (dt, controlFunc)
 {
     this.F_cmd = controlFunc({x:this.x,dx:this.dx,theta:this.theta,dtheta:this.dtheta,T:this.T});
-    if(typeof this.F_cmd != 'number' || isNaN(this.F_cmd)) throw "Error: The controlFunction must return a number.";
+    if(typeof this.F_cmd != 'number' || isNaN(this.F_cmd)) throw "Erro: a controlFunction deve retornar um número.";
     this.F_cmd = Math.max(-30,Math.min(30,this.F_cmd));
     integrationStep(this, ['x', 'dx', 'theta', 'dtheta', 'F'], dt);
 }

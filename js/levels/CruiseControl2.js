@@ -4,11 +4,11 @@ if (typeof Levels === 'undefined') var Levels = {};
 Levels.CruiseControl2 = function()
 {
     this.name = "CruiseControl2";
-    this.title = "Cruise Control 2";
+    this.title = "Controle de Cruzeiro 2";
     this.boilerPlateCode = "function controlFunction(vehicle){ \n  return Math.sin(2*vehicle.T);\n};";
     this.sampleSolution = "function controlFunction(vehicle){\n  return 4 * (vehicle.targetSpeed - vehicle.speed);\n};";
     this.difficultyRating = 1;
-    this.description = "This time the target speed and road inclination change constantly. Keep the speed deviation below 0.5 units for 10 seconds.";
+    this.description = "Desta vez a velocidade alvo e a inclinação da pista mudam constantemente. Mantenha o desvio de velocidade abaixo de 0,5 unidades por 10 segundos.";
     ImageDataCache.load('img/speedometer.png');
     ImageDataCache.load('img/car.png');
     this.model = new Models.CruiseControl({carImg:'img/car.png',speedometerImg:'img/speedometer.png'});
