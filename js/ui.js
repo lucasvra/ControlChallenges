@@ -167,6 +167,9 @@ CC.levelGroups = {
         RocketLandingMulti: 'Múltiplos',
         RocketLandingHoverslam: 'Hoverslam',
     },
+    'Controle de Nível': {
+        TankLevelControl: 'Tanque',
+    },
     'Direção': {
         VehicleSteeringSimple: 'Introdução',
         VehicleRacing: 'Corrida',
